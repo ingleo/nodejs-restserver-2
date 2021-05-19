@@ -11,4 +11,4 @@
     - heroku config:set MONGODB_CONN="mongodb+srv://user:passwd@cluster.h8y3l.mongodb.net/cafeDB"
 
 - Borrar variable en heroku
-    - - heroku config:unset MONGODB_CONN
+    - heroku config:unset MONGODB_CONN
