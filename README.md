@@ -1,4 +1,7 @@
 ###### Comandos heroku
+- Verificar si heroku CLI está instalado
+    - heroku --version
+
 - Para despliegue usar heroku CLI
     - heroku git:remote -a testapp-node-leo
 
