@@ -12,3 +12,6 @@
 
 - Borrar variable en heroku
     - heroku config:unset MONGODB_CONN
+
+- Revisar los logs (de manera local dentro de proyecto)
+    - heroku logs -n 1000 --tail
