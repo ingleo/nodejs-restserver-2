@@ -18,7 +18,6 @@ const getCategories = async (req, res) => {
   });
 };
 
-//obtener categoria - populate
 const getCategoryById = async (req, res) => {
   const { id } = req.params;
 
