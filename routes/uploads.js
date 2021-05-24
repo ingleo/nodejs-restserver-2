@@ -3,7 +3,13 @@ const { check } = require("express-validator");
 
 const { fieldsValidators, fileValidator } = require("../middlewares");
 const { isValidCollection } = require("../helpers");
-const { uploadFile, updateImg, getimg, updateImgCloudinary } = require("../controllers/uploads");
+const {
+  uploadFile,
+  updateImg,
+  getimg,
+  updateImgCloudinary,
+  getimgCloudinary,
+} = require("../controllers/uploads");
 
 const router = Router();
 
@@ -33,7 +39,9 @@ router.get(
     ),
     fieldsValidators,
   ],
-  getimg
+  getimgCloudinary
 );
+/*   getimg
+); */
 
 module.exports = router;

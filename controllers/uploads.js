@@ -1,3 +1,4 @@
+const { response } = require("express");
 const path = require("path");
 const fs = require("fs");
 
@@ -141,9 +142,44 @@ const getimg = async (req, res) => {
   res.sendFile(noImagePath);
 };
 
+const getimgCloudinary = async (req, res = response) => {
+  const { collection, id } = req.params;
+
+  let model;
+
+  switch (collection) {
+    case "users":
+      model = await User.findById(id);
+      if (!model) {
+        return res.status(400).json({
+          msg: `No existe un usuario con id ${id}`,
+        });
+      }
+      break;
+    case "products":
+      model = await Product.findById(id);
+      if (!model) {
+        return res.status(400).json({
+          msg: `No existe un producto con id ${id}`,
+        });
+      }
+      break;
+    default:
+      return res.status(400).json({ msg: "La colección es inválida" });
+  }
+
+  if (model.img) {
+    return res.redirect(model.img);
+  }
+
+  const noImagePath = path.join(__dirname, "../assets", "no-image.jpg");
+  res.sendFile(noImagePath);
+};
+
 module.exports = {
   uploadFile,
   updateImg,
   getimg,
   updateImgCloudinary,
+  getimgCloudinary,
 };
