@@ -35,8 +35,8 @@ router.post(
     check("email", "Formato correo no válido").isEmail(),
     check("email").custom(emailExists),
     check("role").custom(isValidRole),
+    fieldsValidators,
   ],
-  fieldsValidators,
   postUsers
 );
 
